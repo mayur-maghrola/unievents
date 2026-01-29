@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🎓 UniEvents Portal
 
-# Run and deploy your AI Studio app
+UniEvents Portal is a web-based application designed to manage and display university events in an easy and organized way. It helps students and faculty to view, create, and manage campus events from a single platform.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/17PvjrhVvJTtRR24-BqrleJXk_0gReav7
+## 🚀 Features
 
-## Run Locally
+- 📅 View upcoming university events
+- 📝 Create and manage events
+- 👥 User-friendly interface
+- 🔍 Search and filter events
+- 🔐 Secure authentication (if implemented)
+- 📱 Responsive design for mobile and desktop
 
-**Prerequisites:**  Node.js
+---
 
+## 🛠️ Tech Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Frontend: React + TypeScript
+- Build Tool: Vite
+- Styling: CSS / Tailwind (if used)
+- Backend: (Add if you have backend, else remove)
+- Database: (Add if applicable)
+
+---
+
+## ⚙️ How to Run Locally
+
+Follow these steps to run the project on your local machine:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mayur-maghrola/unievents.git
