@@ -253,21 +253,21 @@
 
       if (isValid) {
         const fullName = document.getElementById('fullName').value;
-        
+
         fetch('http://localhost:5000/api/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ fullName, email, password })
         })
-        .then(res => res.json())
-        .then(data => {
-          alert(data.message);
-          if (data.message === 'Registration successful') {
-            this.reset();
-            window.location.hash = '#login';
-          }
-        })
-        .catch(err => alert('Error: ' + err));
+          .then(res => res.json())
+          .then(data => {
+            alert(data.message);
+            if (data.message === 'Registration successful') {
+              this.reset();
+              window.location.hash = '#login';
+            }
+          })
+          .catch(err => alert('Error: ' + err));
       }
     });
 
@@ -275,21 +275,22 @@
       e.preventDefault();
       const email = document.getElementById('loginEmail').value;
       const password = document.getElementById('loginPassword').value;
-      
+
       fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       })
-      .then(res => res.json())
-      .then(data => {
-        alert(data.message);
-        if (data.message === 'Login successful') {
-          this.reset();
-        }
-      })
-      .catch(err => alert('Error: ' + err));
+        .then(res => res.json())
+        .then(data => {
+          alert(data.message);
+          if (data.message === 'Login successful') {
+            this.reset();
+          }
+        })
+        .catch(err => alert('Error: ' + err));
     });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
