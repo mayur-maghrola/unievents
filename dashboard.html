@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <img src="Photos/logo.png" class="logo" alt="CHARUSAT">
+  <div class="profile" id="profileBtn">
+    <div><img src="Photos/user.png" class="user-logo"></div>
+    <span>Student</span>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- TOGGLE -->
+    <div class="sidebar-toggle">
+      <button id="toggleBtn">☰</button>
+    </div>
+
+    <ul>
+      <li class="active">
+        <span class="icon">🏠︎</span>
+        <span class="text">Home</span>
+      </li>
+      <li>
+        <span class="icon">➜]</span>
+        <span class="text">New Event Entry</span>
+      </li>
+      <li>
+        <span class="icon">𝄜</span>
+        <span class="text">My Registered Event</span>
+      </li>
+      <li>
+        <span class="icon">🗒</span>
+        <span class="text">My Shared Events</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <h2>Dashboard</h2>
+
+    <!-- CATEGORY -->
+    <div class="category">
+      <button class="active" data-category="Tech">TECH</button>
+      <button data-category="Non-Tech">NON-TECH</button>
+      <button data-category="Workshop">WORKSHOP</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Event Name</th>
+            <th>Event Nature</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr data-nature="Tech">
+            <td>1</td>
+            <td>Hackathon Mania</td>
+            <td>Tech</td>
+            <td>30 March 2026</td>
+            <td><span class="status registered">Registered</span></td>
+            <td><button class="action-btn unregister">Unregister</button></td>
+          </tr>
+
+          <tr data-nature="Tech">
+            <td>2</td>
+            <td>C-Quest</td>
+            <td>Tech</td>
+            <td>20 Feb 2026</td>
+            <td><span class="status not-registered">Not Registered</span></td>
+            <td><button class="action-btn register">Register</button></td>
+          </tr>
+
+          <tr data-nature="Tech">
+            <td>3</td>
+            <td>Coding Vibe</td>
+            <td>Tech</td>
+            <td>10 April 2026</td>
+            <td><span class="status not-registered">Not Registered</span></td>
+            <td><button class="action-btn register">Register</button></td>
+          </tr>
+
+          <tr data-nature="Tech">
+            <td>4</td>
+            <td>AI Bharat</td>
+            <td>Tech</td>
+            <td>15 April 2026</td>
+            <td><span class="status registered">Registered</span></td>
+            <td><button class="action-btn unregister">Unregister</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

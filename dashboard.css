@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1f3c88, #274b9f);
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  height: 70px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.logo {
+  height: 42px;
+}
+
+.icon {
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1px solid #cce3f5;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #d6dae3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-logo {
+  height: 25px;
+  width: 25px;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #1f3c88, #274b9f);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-toggle {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.sidebar-toggle button {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.sidebar li.active,
+.sidebar li:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.sidebar.collapsed .text {
+  display: none;
+}
+
+.sidebar.collapsed li {
+  justify-content: center;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  background: #f5f7fb;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.content h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* CATEGORY */
+.category {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.category button {
+  padding: 10px 22px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #e1e7f5;
+  color: #1f3c88;
+}
+
+.category .active {
+  background: #1f3c88;
+  color: white;
+}
+
+/* TABLE */
+.table-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 16px;
+  text-transform: uppercase;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+td {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* STATUS */
+.status {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.registered {
+  background: #e6f7ec;
+  color: #2e8b57;
+}
+
+.not-registered {
+  background: #fdeaea;
+  color: #c0392b;
+}
+
+/* ACTION */
+.action-btn {
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.register {
+  background: #1f3c88;
+  color: white;
+}
+
+.unregister {
+  background: #c0392b;
+  color: white;
+}
