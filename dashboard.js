@@ -43,3 +43,19 @@ document.querySelectorAll(".action-btn").forEach(button => {
     }
   });
 });
+
+
+// PROFILE DROPDOWN TOGGLE
+const profileBtn = document.getElementById("profileBtn");
+const profileCard = document.getElementById("profileCard");
+
+profileBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  profileCard.style.display =
+    profileCard.style.display === "block" ? "none" : "block";
+});
+
+// Close when clicking outside
+document.addEventListener("click", () => {
+  profileCard.style.display = "none";
+});
