@@ -17,10 +17,9 @@ UniEvents Portal is a web-based application designed to manage and display unive
 
 ## 🛠️ Tech Stack
 
-- Frontend: React + TypeScript
-- Build Tool: Vite
+- Frontend: HTML , CSS, JS
 - Styling: CSS / Tailwind (if used)
-- Backend: (Add if you have backend, else remove)
+- Backend: 
 - Database: (Add if applicable)
 
 ---
