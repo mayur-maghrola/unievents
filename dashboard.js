@@ -17,7 +17,7 @@ let allEvents = JSON.parse(localStorage.getItem('allEvents')) || [
 
 // Track current view (home, myRegistered, myPosts) and selected category
 let currentView = 'home';
-let currentCategory = 'Tech';
+let currentCategory = 'All';
 
 // Dynamically render events in the table based on view type
 // viewType determines which buttons to show (Register/Unregister OR Edit/Delete)
@@ -35,8 +35,10 @@ function renderEvents(events, viewType = 'home') {
       // For events posted by user: show Edit and Delete buttons
       actionButton = `<button class="action-btn edit-btn" data-id="${event.id}">Edit</button> <button class="action-btn delete-btn" data-id="${event.id}">Delete</button>`;
     } else {
-      // For all other views: show Register/Unregister button based on status
-      actionButton = `<button class="action-btn ${event.status === 'Registered' ? 'unregister' : 'register'}" data-id="${event.id}">${event.status === 'Registered' ? 'Unregister' : 'Register'}</button>`;
+      // For all other views: show Register button only if not registered, show "Registered" text if registered
+      actionButton = event.status === 'Registered' 
+        ? `<span class="registered-text">Registered</span>`
+        : `<button class="action-btn register" data-id="${event.id}">Register</button>`;
     }
     
     // Build table row HTML
@@ -70,15 +72,13 @@ function attachActionListeners() {
         // EDIT: Open modal with pre-filled event data
         editEvent(eventId);
       } else {
-        // REGISTER/UNREGISTER: Toggle event registration status
+        // REGISTER: Change status to registered (no unregister option)
         const event = allEvents.find(e => e.id === eventId);
         if (button.classList.contains("register")) {
           event.status = "Registered";
-        } else {
-          event.status = "Not Registered";
+          localStorage.setItem('allEvents', JSON.stringify(allEvents));
+          updateView();
         }
-        localStorage.setItem('allEvents', JSON.stringify(allEvents));
-        updateView();
       }
     });
   });
@@ -93,7 +93,7 @@ function updateView() {
     // HOME VIEW: Show category buttons and filter by selected category
     categorySection.style.display = 'flex';
     pageTitle.textContent = 'Dashboard';
-    const filtered = allEvents.filter(e => e.nature === currentCategory);
+    const filtered = currentCategory === 'All' ? allEvents : allEvents.filter(e => e.nature === currentCategory);
     renderEvents(filtered, 'home');
   } else if (currentView === 'myRegistered') {
     // MY REGISTERED EVENTS: Show only registered events

@@ -109,20 +109,16 @@
         <h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
         <form id="loginForm" class="space-y-4">
           <div>
-            <label class="block text-sm font-medium mb-2">Email</label>
-            <input type="email" id="loginEmail"
+            <label class="block text-sm font-medium mb-2">Username</label>
+            <input type="text" id="loginUsername"
               class="w-full px-4 py-3 rounded-lg bg-[#1a1c2c] border border-white/10 focus:border-blue-500 focus:outline-none"
-              placeholder="example@charusat.edu.in" required>
-            <p id="loginEmailError" class="text-red-400 text-xs mt-1 hidden">Email must be @charusat.edu.in or
-              @charusat.ac.in</p>
+              placeholder="Enter username" required>
           </div>
           <div>
             <label class="block text-sm font-medium mb-2">Password</label>
             <input type="password" id="loginPassword"
               class="w-full px-4 py-3 rounded-lg bg-[#1a1c2c] border border-white/10 focus:border-blue-500 focus:outline-none"
               placeholder="••••••••" required>
-            <p id="loginPasswordError" class="text-red-400 text-xs mt-1 hidden">Password must be at least 8 characters
-            </p>
           </div>
           <button type="submit"
             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition">
@@ -192,28 +188,13 @@
     document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const email = document.getElementById('loginEmail').value;
+      const username = document.getElementById('loginUsername').value;
       const password = document.getElementById('loginPassword').value;
-      let isValid = true;
 
-      const emailPattern = /^[^\s@]+@charusat\.(edu\.in|ac\.in)$/;
-      if (!emailPattern.test(email)) {
-        document.getElementById('loginEmailError').classList.remove('hidden');
-        isValid = false;
+      if (username === 'test' && password === 'test@123') {
+        window.location.href = 'dashboard.html';
       } else {
-        document.getElementById('loginEmailError').classList.add('hidden');
-      }
-
-      if (password.length < 8) {
-        document.getElementById('loginPasswordError').classList.remove('hidden');
-        isValid = false;
-      } else {
-        document.getElementById('loginPasswordError').classList.add('hidden');
-      }
-
-      if (isValid) {
-        alert('Login successful!');
-        this.reset();
+        alert('Invalid username or password!');
       }
     });
 
@@ -252,45 +233,11 @@
       }
 
       if (isValid) {
-        const fullName = document.getElementById('fullName').value;
-
-        fetch('http://localhost:5000/api/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ fullName, email, password })
-        })
-          .then(res => res.json())
-          .then(data => {
-            alert(data.message);
-            if (data.message === 'Registration successful') {
-              this.reset();
-              window.location.hash = '#login';
-            }
-          })
-          .catch(err => alert('Error: ' + err));
+        alert('Registration successful! Please login.');
+        this.reset();
+        window.location.hash = '#login';
       }
     });
-
-    document.getElementById('loginForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-
-      fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      })
-        .then(res => res.json())
-        .then(data => {
-          alert(data.message);
-          if (data.message === 'Login successful') {
-            this.reset();
-          }
-        })
-        .catch(err => alert('Error: ' + err));
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
