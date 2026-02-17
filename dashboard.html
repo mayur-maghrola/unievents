@@ -48,31 +48,31 @@
     </div>
 
     <ul>
-      <li class="active">
+      <li class="active" id="homeBtn">
         <span class="icon">🏠︎</span>
         <span class="text">Home</span>
       </li>
-      <li>
+      <li id="newEventBtn">
         <span class="icon">➜]</span>
         <span class="text">New Event Entry</span>
       </li>
-      <li>
+      <li id="myRegisteredBtn">
         <span class="icon">𝄜</span>
         <span class="text">My Registered Event</span>
       </li>
-      <li>
+      <li id="myPostEventsBtn">
         <span class="icon">🗒</span>
-        <span class="text">My Shared Events</span>
+        <span class="text">My Post Events</span>
       </li>
     </ul>
   </aside>
 
   <!-- CONTENT -->
   <main class="content">
-    <h2>Dashboard</h2>
+    <h2 id="pageTitle">Dashboard</h2>
 
     <!-- CATEGORY -->
-    <div class="category">
+    <div class="category" id="categorySection">
       <button class="active" data-category="Tech">TECH</button>
       <button data-category="Non-Tech">NON-TECH</button>
       <button data-category="Workshop">WORKSHOP</button>
@@ -92,7 +92,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody id="eventTableBody">
           <tr data-nature="Tech">
             <td>1</td>
             <td>Hackathon Mania</td>
@@ -132,8 +132,88 @@
       </table>
     </div>
   </main>
-
 </div>
+
+<!-- New event entry -->
+
+<div id="eventModal" class="modal-overlay">
+
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+
+    <h2>New Event Entry</h2>
+
+    <form id="eventForm">
+
+      <div class="form-group">
+        <label>Event Name</label>
+        <input type="text" id="eventName" required>
+      </div>
+
+      <div class="form-group">
+        <label>Event Nature</label>
+        <select id="eventNature" required>
+          <option value="">Select</option>
+          <option>Tech</option>
+          <option>Non-Tech</option>
+          <option>Workshop</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="eventDate" required>
+        </div>
+
+        <div class="form-group">
+          <label>Start Time</label>
+          <input type="time" id="eventStartTime" required>
+        </div>
+
+        <div class="form-group">
+          <label>End Time</label>
+          <input type="time" id="eventEndTime" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Institute</label>
+        <select id="eventInstitute" required>
+          <option value="">Select</option>
+          <option>CSPIT</option>
+          <option>DEPSTAR</option>
+          <option>CMPICA</option>
+          <option>RPCP</option>
+          <option>MTIN</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Department</label>
+        <select id="eventDepartment" required>
+          <option value="">Select</option>
+          <option>AIML</option>
+          <option>CSE</option>
+          <option>CE</option>
+          <option>IT</option>
+          <option>EC</option>
+          <option>ME</option>
+          <option>EE</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Venue</label>
+        <input type="text" id="eventVenue" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Save Event</button>
+
+    </form>
+  </div>
+</div>
+
 
 <script src="dashboard.js"></script>
 </body>
