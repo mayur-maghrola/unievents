@@ -271,3 +271,12 @@ eventForm.addEventListener('submit', (e) => {
 
 // Render the initial view when page loads
 updateView();
+
+
+// Handle logout button click
+const logoutButton = document.getElementById('logoutBtn');
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+}
